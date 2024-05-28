@@ -39,7 +39,7 @@ export const sortAndNestFolders = (folders: Folder[]): Folder[] => {
   };
 
   const merge = (left: Folder[], right: Folder[]): Folder[] => {
-    let result: Folder[] = [];
+    const result: Folder[] = [];
     let leftIndex = 0;
     let rightIndex = 0;
 
@@ -58,9 +58,9 @@ export const sortAndNestFolders = (folders: Folder[]): Folder[] => {
 
   const sortFoldersRecursively = (folders: Folder[]): Folder[] => {
     if (folders.length === 0) return folders;
-    
+
     const sortedFolders = mergeSort(folders);
-    sortedFolders.forEach(folder => {
+    sortedFolders.forEach((folder) => {
       if (folder.children && folder.children.length > 0) {
         folder.children = sortFoldersRecursively(folder.children);
       }
@@ -71,12 +71,10 @@ export const sortAndNestFolders = (folders: Folder[]): Folder[] => {
   return sortFoldersRecursively(roots);
 };
 
-export const parseData = (data: any[]): Folder[] => {
-  return data.map((item: any) => ({
-    id: item[0],
-    name: item[1] || 'Unnamed Folder',
-    parent: item[2] !== undefined ? item[2] : null,
-    created: item[3],
-    children: []
-  }));
-};
+export const parseData = (data: any[]): Folder[] => data.map((item: any) => ({
+  id: item[0],
+  name: item[1] || 'Unnamed Folder',
+  parent: item[2] !== undefined ? item[2] : null,
+  created: item[3],
+  children: [],
+}));
