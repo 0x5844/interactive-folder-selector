@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Interactive Folder Selector 📁
 
-## Getting Started
+This project  implements an interactive folder selector using React, Next.js, and TypeScript. Below are detailed instructions on setting up and running the project, including environment setup and operational details.
 
-First, run the development server:
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [Running the Project](#running-the-project)
+- [Project Structure](#project-structure)
+- [Approach and Time Allocation](#approach-and-time-allocation)
+- [Dependencies](#dependencies)
+
+## Prerequisites
+
+- Node.js (v22.2.0)
+- PNPM
+
+For the ease of reference:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm install 22.2.0
+nvm use 22.2.0
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Running the Project
 
-## Learn More
+To run the project locally, use the following commands:
 
-To learn more about Next.js, take a look at the following resources:
+- **Development mode:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  ```bash
+  pnpm run dev
+  ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  This will start the development server on [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+- **Production build and start:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  ```bash
+  pnpm run build
+  pnpm run start
+  ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Project Structure
+
+- `src/types/`: TypeScript interfaces and types.
+- `src/utils/`: Utility functions, including folder sorting and nesting using a merge sort algorithm.
+- `src/hooks/`: React hooks for data fetching and state management.
+- `src/components/`: React components for rendering the folder structure.
+- `src/pages/`: Entry points for the application pages.
+
+## Approach and Time Allocation
+
+- **Requirement Understanding and Planning:** 30 minutes
+- **Frontend Component Building:** 1 hour
+- **Component Logic Implementation:** 1 hour
+  - Utilizes merge sort for sorting folders and dynamic programming techniques for handling folder selections efficiently.
+- **Debugging and Minor Adjustments:** 30 minutes
+  - Focus on sorting logic, UI responsiveness, and handling edge cases in data.
+
+## Dependencies
+
+- **React and React DOM:** For building the user interface.
+- **Next.js:** As the React framework for server-rendered applications.
+- **TypeScript:** For type safety across the application.
+- **TailwindCSS:** For utility-first CSS management.
+Refer to `package.json` for a full list of dependencies and their respective versions
