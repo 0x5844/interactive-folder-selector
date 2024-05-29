@@ -159,6 +159,9 @@ const Home: React.FC = () => {
    * @returns True if the folder is indeterminate, false otherwise.
    */
   const isIndeterminate = useCallback((folder: Folder): boolean => {
+    if (!folder.children || folder.children.length === 0 || selectedIds.has(folder.id)) {
+      return false;
+    }
     const childrenIds = folder.children?.map((child) => child.id) || [];
     const selectedChildren = childrenIds.filter((id) => selectedIds.has(id));
     return selectedChildren.length > 0 && selectedChildren.length < childrenIds.length;
