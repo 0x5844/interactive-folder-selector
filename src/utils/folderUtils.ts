@@ -160,8 +160,6 @@ export const calculateFolderStates = (
   };
   folders.forEach(buildPostOrder);
 
-  console.log('Post-order folder list:', postOrder.map(f => f.id));
-
   // compute each folder’s selected/indeterminate by looking at all its descendant items
   postOrder.forEach(folder => {
     const descIds = getAllDescendantItemIds(folder);
