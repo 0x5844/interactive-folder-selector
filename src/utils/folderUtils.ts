@@ -163,15 +163,11 @@ export const calculateFolderStates = (
   // compute each folder’s selected/indeterminate by looking at all its descendant items
   postOrder.forEach(folder => {
     const descIds = getAllDescendantItemIds(folder);
-    console.log(`Folder ${folder.id} descendants:`, descIds);
     const total = descIds.length;
-    console.log(`Total descendants for folder ${folder.id}:`, total);
     const selectedCount = descIds.filter(id => selectedItemIds.has(id)).length;
-    console.log(`Selected count for folder ${folder.id}:`, selectedCount);
 
     const selected = total > 0 && selectedCount === total;
     const indeterminate = selectedCount > 0 && selectedCount < total;
-    console.log(`Folder ${folder.id} state - Selected: ${selected}, Indeterminate: ${indeterminate}`);
 
     stateMap.set(folder.id, { selected, indeterminate });
   });
